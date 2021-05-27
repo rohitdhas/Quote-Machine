@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Alata;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: tomato;
+  transition: background-color 0.4s;
+}
+
+#container{
+  max-width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+#quote-box {
+  padding: 20px;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  color: tomato;
+}
+
+#text{
+  font-size: 1.2rem;
+}
+
+#author{
+  margin: 15px 0;
+}
+
+#btns {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#btns a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: royalblue;
+  margin-right: 10px;
+}
+
+#btns a:hover {
+  text-decoration: underline;
+}
+
+#btns button {
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: tomato;
+  color: white;
+}
+
+footer{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15px;
+  color: white
+}
+
+footer a{
+  color: blue;
+  text-decoration: none;
+}
+
+footer a:hover{
+  text-decoration: underline;
+}
+
+@media (max-width: 500px){
+  button:hover{
+    transform: scale(0.95);
+    transition: transform .2s;
+  }
+}
