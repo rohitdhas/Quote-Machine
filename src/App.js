@@ -1,5 +1,7 @@
 import "./styles.css";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 let colors = [
   "#e9c46a",
@@ -12,20 +14,21 @@ let colors = [
 ];
 
 export default function App() {
-  
-  const [quote, setQuote] = useState();
-  const [author, setAuthor] = useState();
-  const [color, setColor] = useState('tomato');
+  const [quote, setQuote] = useState([]);
+  const color = colors[Math.floor(Math.random() * colors.length)];
 
-  useEffect(()=> {
-    fetch('https://api.quotable.io/random')
-    .then(response => response.json())
-    .then(data => {
-      setQuote(data.content)
-      setAuthor(data.author)
-    })
-  }, [color])
-  
+  function NewQuote() {
+    fetch("https://api.quotable.io/random")
+      .then((response) => response.json())
+      .then((data) => {
+        setQuote([data.content, data.author]);
+      });
+  }
+
+  useEffect(() => {
+    NewQuote();
+  }, []);
+
   document.body.style.backgroundColor = color;
 
   return (
@@ -33,17 +36,28 @@ export default function App() {
       <div id="container">
         <div id="quote-box">
           <p id="text" style={{ color: color }}>
-            <q><strong>{quote}</strong></q>
+            <q>
+              <strong>{quote[0]}</strong>
+            </q>
           </p>
           <h4 id="author" style={{ color: color }}>
-            -{author}
+            -{quote[1]}
           </h4>
           <div id="btns">
-            <a rel="noreferrer" className="twitter-share-button" href={`https://twitter.com/intent/tweet?text=${quote}`} target="_blank" id="tweet-quote">
-              Tweet
-            </a>
+            <div className="tweet">
+              <FontAwesomeIcon id="twitter-icon" icon={faTwitter} />
+              <a
+                rel="noreferrer"
+                className="twitter-share-button"
+                href={`https://twitter.com/intent/tweet?text=${quote}`}
+                target="_blank"
+                id="tweet-quote"
+              >
+                Tweet
+              </a>
+            </div>
             <button
-              onClick={() => setColor(colors[Math.floor(Math.random() * colors.length)])}
+              onClick={NewQuote}
               style={{ backgroundColor: color }}
               id="new-quote"
             >
@@ -51,11 +65,20 @@ export default function App() {
             </button>
           </div>
         </div>
+      </div>
+      <footer>
+        <p>Designed and Coded by</p>
+        <p>
+          <FontAwesomeIcon id="linkedin-icon" icon={faLinkedin} />
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/rohit-dhas-26b68215a/"
+          >
+            Rohit Dhas
+          </a>
+        </p>
+      </footer>
     </div>
-        <footer>
-          <p>Designed and Coded by</p>
-          <p><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/rohit-dhas-26b68215a/">Rohit Dhas</a></p>
-        </footer>
-  </div>
   );
 }

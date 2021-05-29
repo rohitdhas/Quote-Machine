@@ -13,11 +13,15 @@ body {
   transition: background-color 0.4s;
 }
 
-#container{
+#container {
   max-width: 60%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+}
+
+svg {
+  margin-right: 7px;
 }
 
 #quote-box {
@@ -33,11 +37,11 @@ body {
   color: tomato;
 }
 
-#text{
+#text {
   font-size: 1.2rem;
 }
 
-#author{
+#author {
   margin: 15px 0;
 }
 
@@ -48,12 +52,12 @@ body {
   align-items: center;
 }
 
-#btns a {
+#btns a,
+#twitter-icon {
   text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
-  color: royalblue;
-  margin-right: 10px;
+  color: #1da1f2;
 }
 
 #btns a:hover {
@@ -70,25 +74,29 @@ body {
   color: white;
 }
 
-footer{
+footer {
   text-align: center;
   font-weight: bold;
   margin-top: 15px;
-  color: white
+  color: white;
 }
 
-footer a{
-  color: blue;
+footer a {
+  color: rgb(0, 67, 192);
   text-decoration: none;
 }
 
-footer a:hover{
+#linkedin-icon {
+  font-size: 1.2rem;
+}
+
+footer a:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 500px){
-  button:hover{
+@media (max-width: 500px) {
+  button:hover {
     transform: scale(0.95);
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
 }
