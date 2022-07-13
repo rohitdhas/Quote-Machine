@@ -74,6 +74,10 @@ svg {
   color: white;
 }
 
+#btns button:hover {
+  transform: scale(0.9);
+}
+
 footer {
   text-align: center;
   font-weight: bold;
@@ -82,7 +86,7 @@ footer {
 }
 
 footer a {
-  color: rgb(0, 67, 192);
+  color: white;
   text-decoration: none;
 }
 
@@ -91,6 +95,7 @@ footer a {
 }
 
 footer a:hover {
+  color: cornflowerblue;
   text-decoration: underline;
 }
 
