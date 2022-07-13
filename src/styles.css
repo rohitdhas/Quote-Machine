@@ -72,6 +72,7 @@ svg {
   font-weight: bold;
   background-color: tomato;
   color: white;
+  transition: all 0.2s;
 }
 
 #btns button:hover {
